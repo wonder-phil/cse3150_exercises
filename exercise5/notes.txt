@@ -1,0 +1,2 @@
+ g++ -g unit_tests_linked_list.cpp linked_list.cpp
+ valgrind --tool=memcheck --leak-check=yes ./a.out

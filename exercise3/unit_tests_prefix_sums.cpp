@@ -4,7 +4,7 @@
  */
 
 #include "doctest.h"
-#include "prefix_sums.h"
+#include "prefix_sum.h"
 
 int nums_0[] = {};
 int nums_1[] = {-5};

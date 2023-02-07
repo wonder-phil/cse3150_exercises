@@ -5,11 +5,12 @@
 
 struct node * build_linked_list(const int elements) {
   struct node * linked_list = new node;
+  linked_list->number = -1;
   struct node * root = linked_list;
   
   for( int i = 0; i < elements; i++) {
-    linked_list->number = i;
     linked_list->next = new node;
+    linked_list->number = i;
     linked_list = linked_list->next;
     linked_list->jumper = linked_list->next;    
   }
@@ -73,16 +74,20 @@ void print_linked_list(struct node * list, const int elements) {
   }
 }
 
+
 int delete_linked_list(struct node * list, const int elements) {
   int count = 0;
-  
-  struct node * my_node = list;
-  for (int i =0; i < elements; i++) {
-    struct node * prev_node = my_node;
-    my_node = my_node->next;
 
-    delete prev_node;
-    count++;
+  if (elements > 0) {
+    struct node * my_node = list;
+    for (int i =0; i < elements; i++) {
+      struct node * prev_node = my_node;
+      my_node = my_node->next;
+
+      delete prev_node;
+      count++;
+    }
+    delete my_node;
   }
 
   return count;

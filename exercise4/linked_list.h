@@ -13,15 +13,13 @@ struct node {
 };
 
 
-struct node * build_linked_list(int elements);
+struct node * build_linked_list(const int elements);
+struct node * pointer_jump_linked_list(struct node * list, const int elements);
+void print_linked_list(struct node * list, const int elements);
+int delete_linked_list(struct node * list, const int elements);
 
-void print_linked_list(struct node * list, int elements);
-
-int delete_linked_list(struct node * list, int elements);
-
-int sum_values_in_linked_list(struct node * list, int elements);
-
-struct node * array_ptrs_to_each_element_in_linked_list(struct node * origional_list, int elements);
+int sum_values_in_linked_list(struct node * list, const int elements);
+struct node * array_ptrs_to_each_element_in_linked_list(struct node * origional_list, const int elements);
 
 #endif
 
