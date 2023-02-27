@@ -14,9 +14,9 @@ node * build_linked_list(const int elements) {
   
   for( int i = 0; i < elements; i++) {
     linked_list->next = new node;
-    linked_list->next->number = i+7;
     linked_list->jumper = linked_list->next;
     linked_list         = linked_list->next;
+    linked_list->number = i;
   }
   linked_list->jumper = linked_list;
   linked_list->next   = linked_list; // next of last elt points to itself
@@ -84,10 +84,7 @@ int print_jumper_pts_to_value(node * array_ptrs, const int elements) {
   cout <<  "print_jumper_pts_to_value start " << endl;  
   for (int i = 0; i < elements; i++) {
     
-    //int number = array_ptrs[i].number;
     int number = array_ptrs[i].jumper->number;
-    //int number_in_node = array_ptrs[i].number;        
-    //cout <<  number << " " << number_in_node << endl;
     cout <<  number << " " << endl;    
   }
 
@@ -98,14 +95,12 @@ int print_jumper_pts_to_value(node * array_ptrs, const int elements) {
 
 int advance_jumpers_double(struct node * array_ptrs, const int elements) {
 
-  int sum = 0;
-
   for (int i = 0; i < elements ; i++) {
     array_ptrs[i].jumper = array_ptrs[i].jumper->jumper;
   }
 
     
-  return sum;
+  return 0;
 }
 
 
