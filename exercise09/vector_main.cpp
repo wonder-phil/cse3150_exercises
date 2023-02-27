@@ -9,8 +9,8 @@ using namespace std;
 
 struct int_vector {
   int id;
-  int from;
-  int to;
+  int x;
+  int y;
 };
 
 
@@ -22,12 +22,12 @@ int main() {
   vector<int_vector> vect;
 
   int id{0};
-  string from, to;
-  while (in_file >> from >> to) {
-    cout << from << " " << to << " " << endl;
+  string x, y;
+  while (in_file >> x >> y) {
+    cout << x << " " << y << " " << endl;
     int_vector i_v;
-    i_v.from = atoi(from.c_str());
-    i_v.to = atoi(to.c_str());
+    i_v.x = atoi(x.c_str());
+    i_v.y = atoi(y.c_str());
     i_v.id = id++;
     vect.push_back(i_v);
   }
@@ -35,7 +35,7 @@ int main() {
   cout << "------------------" << endl;
 
   for (auto v : vect) {
-    cout << v.id << ": "  << v.from << " to " << v.to << endl;
+    cout << v.id << ": "  << v.x << " to " << v.y << endl;
   }
 
   cout << "------------------" << endl;
@@ -48,7 +48,7 @@ int main() {
        });
 
   for (auto v : vect) {
-    cout << v.id << ": "  << v.from << " to " << v.to << endl;
+    cout << v.id << ": ("  << v.x << ", " << v.y << ") " << endl;
   }  
        
   in_file.close();

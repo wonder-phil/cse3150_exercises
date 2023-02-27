@@ -7,21 +7,20 @@ using namespace std;
 
 
 node * build_linked_list(const int elements) {
-  node * linked_list = new node;
+  node * root = new node;  
+  node * linked_list = root;
   linked_list->number = -1; // an anchor
-  node * root = linked_list;
+
   
   for( int i = 0; i < elements; i++) {
     linked_list->next = new node;
-    linked_list->number = i;
-    linked_list->jumper = linked_list->next;    
-    linked_list = linked_list->next;
+    linked_list->next->number = i+7;
+    linked_list->jumper = linked_list->next;
+    linked_list         = linked_list->next;
   }
-
   linked_list->jumper = linked_list;
-  linked_list->next = linked_list; // next of last elt points to itself
+  linked_list->next   = linked_list; // next of last elt points to itself
 
-  
   return root;
 }
 
@@ -78,12 +77,18 @@ int print_jumper_next_node(node * array_ptrs, const int elements) {
 }
 
 
+/*
+  assumes an array of node structs
+ */
 int print_jumper_pts_to_value(node * array_ptrs, const int elements) {
   cout <<  "print_jumper_pts_to_value start " << endl;  
-  for (int i =0; i < elements; i++) {
+  for (int i = 0; i < elements; i++) {
     
-    int number = array_ptrs[i].number;
-    cout <<  number << " " << endl;
+    //int number = array_ptrs[i].number;
+    int number = array_ptrs[i].jumper->number;
+    //int number_in_node = array_ptrs[i].number;        
+    //cout <<  number << " " << number_in_node << endl;
+    cout <<  number << " " << endl;    
   }
 
   cout <<  "print_jumper_pts_to_value end " << endl;
@@ -93,17 +98,12 @@ int print_jumper_pts_to_value(node * array_ptrs, const int elements) {
 
 int advance_jumpers_double(struct node * array_ptrs, const int elements) {
 
-  cout <<  "advance_jumpers_double start" << endl;
   int sum = 0;
 
   for (int i = 0; i < elements ; i++) {
     array_ptrs[i].jumper = array_ptrs[i].jumper->jumper;
-    int number = array_ptrs[i].number;
-    cout <<  number << " " << endl;
-    sum += number;
   }
 
-  cout <<  "advance_jumpers_double end" << endl;
     
   return sum;
 }
@@ -116,7 +116,7 @@ node * array_ptrs_to_each_element_in_linked_list(node * origional_list, const in
   
   for( int i = 0; i < elements; i++) {
     array_of_elts_linked_list[i].number = origional_list->number;
-    array_of_elts_linked_list[i].next = origional_list->next;
+    array_of_elts_linked_list[i].next   = origional_list->next;
     array_of_elts_linked_list[i].jumper = origional_list->jumper;    
     origional_list = origional_list->next;
   }
@@ -143,7 +143,7 @@ int print_array_list(node * list, const int elements){
   cout << "print_array_list start" << endl;
   for (int i =0; i < elements; i++) {
     cout << list[i].number << " " << endl;
-    cout << "jumper value: " << list[i].jumper << " " << endl;    
+    cout << "jumper value: " << list[i].jumper->number << " " << endl;    
   }
   cout << "print_array_list stop" << endl;
   return elements;
