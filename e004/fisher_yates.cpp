@@ -1,4 +1,9 @@
+#include <iostream>
+#include <random>
+#include "fisher_yates.h"
 
+
+using namespace std;
 
 void swap(int* a, int* b) {
   int temp = *a;
@@ -19,3 +24,11 @@ void fisher_yates(int array[], const int length, int (* random_fcn)()) {
     swap(& array[i], & array[rnd_location + i]);
   }
 }
+
+/*
+
+    cout << "mod " << (length  -i)
+	 << " and r_location " << rnd_location
+	 << " and i = " << i << endl;
+  
+*/
