@@ -1,5 +1,5 @@
-#ifndef __VECTOR_2D_
-#define __VECTOR_2D_
+#ifndef _STUDENT_H_
+#define _STUDENT_H_
 
 #include <vector>
 #include <string>
