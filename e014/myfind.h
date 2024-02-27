@@ -14,7 +14,6 @@ bool greaterThan(const int & a, const int & b) {
     }
 }
 
-
 template<typename T, bool (*cmp)(const T & a, const T & b)>
 bool myfind(std::vector<int> x, int v) {
     int small = 0, large = x.size() -1;
@@ -22,7 +21,6 @@ bool myfind(std::vector<int> x, int v) {
     while (small <= large) {
         int mid = (small + large)/2;
         if (v == x[mid]) return true;
-
         else {
             bool lessThan = !cmp(v,x[mid]);
             if (lessThan) large = mid -1;

@@ -19,7 +19,7 @@ int main() {
 
     ifstream in_file;
     
-    in_file.open("graph.txt");
+    in_file.open("vector.txt");
 
     vector<int> my_vector;
 

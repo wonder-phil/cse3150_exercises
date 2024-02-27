@@ -6,13 +6,13 @@
 #include <sstream>
 #include <string>
 #include <vector>
-#include "ints_read.h"
+#include "ints_read_vector.h"
 
 
 
 TEST_CASE("ints_read") {
   
-  SUBCASE("Edge cases - istringstream") {
+  SUBCASE("ints_read : edge cases - istringstream") {
     istringstream istr_0("");
     vector<int> vec_0 = ints_read(istr_0);
     CHECK(0 == vec_0.size());
@@ -29,7 +29,29 @@ TEST_CASE("ints_read") {
 
   };
 
-  SUBCASE("Edge cases - ifstream") {
+    SUBCASE("ints_read_one_line() : edge cases - istringstream") {
+      istringstream istr_0("");
+      vector<int> vec_0 = ints_read_one_line(istr_0);
+      CHECK(0 == vec_0.size());
+
+      istringstream istr_5("5");
+      vector<int> vec_5 = ints_read(istr_5);
+      CHECK(5 == vec_5[0]);
+      CHECK(1 == vec_5.size());
+
+      istringstream istr_99("-99 1 2");
+      vector<int> vec_99 = ints_read(istr_99);
+      CHECK(-99 == vec_99[0]);
+      CHECK(3 == vec_99.size());
+
+      istringstream istr_two_lines("-99 1 2\\n3 4 5"); // escape the new-line
+      vector<int> vec_one_line = ints_read(istr_two_lines);
+      CHECK(-99 == vec_one_line[0]);
+      CHECK(3 == vec_one_line.size()); // only 1 line of 3 elements read in
+
+  };
+
+  SUBCASE("ints_read : edge cases - ifstream FILE") {
     const char FILE_NAME[] = "./temp.txt";
     ofstream test_file;
     test_file.open(FILE_NAME);
@@ -45,8 +67,10 @@ TEST_CASE("ints_read") {
     CHECK(8 == vec_8[0]);
 
   };
+
+
   
-  SUBCASE("Small cases") {
+  SUBCASE("ints_read : small cases") {
 
     istringstream istr("0 1 2");
     vector<int> vec = ints_read(istr);

@@ -23,7 +23,6 @@ TEST_CASE("myfind") {
 
   };
 
-  
   SUBCASE("Small cases") {
     std::vector<int> x = {1,5,8,11,25,30,32,47,78,99,101};
     bool foundIt_not = myfind(x,33);
