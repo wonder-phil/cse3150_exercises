@@ -28,8 +28,5 @@ int main() {
     cout << i_vec_1 << endl;
     cout << i_vec_2 << endl;
 
-
-
-
     return 0;
 }
