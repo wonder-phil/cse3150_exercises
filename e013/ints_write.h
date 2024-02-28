@@ -4,9 +4,8 @@
 #include <istream>
 #include <vector>
 
-#include "ints_write.h"
 
-
-std::ostream &operator<<(std::ostream &os, const std::vector<int> &input);
+std::ostream &operator<<(std::ostream &os, const std::vector<int> & my_vector);
+std::ostream &operator<<(std::ostream &os, const std::vector<std::vector<int>> & my_matrix);
 
 #endif

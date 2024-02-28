@@ -7,7 +7,7 @@
 using namespace std;
 
 
-vector<int> ints_read(istream & in_stream) {
+vector<int> ints_read_vector(istream & in_stream) {
     vector<int> res;
     for(int i; in_stream >> i; ) {
         res.push_back(i);

@@ -16,7 +16,7 @@ vector<vector<int>> ints_read_matrix(istream & in_stream) {
     while (! in_stream.eof() ) {
         getline(in_stream, line);
         istringstream is_line(line);
-        matrix.push_back(ints_read_one_line(is_line));
+        matrix.push_back(ints_read(is_line));
     }
 
     return matrix;
