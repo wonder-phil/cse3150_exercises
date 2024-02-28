@@ -1,5 +1,5 @@
 #ifndef _MY_FIND_H_
-#define _MY_FIND_H
+#define _MY_FIND_H_
 
 #include <iostream>
 #include <vector>
@@ -15,7 +15,7 @@ bool greaterThan(const int & a, const int & b) {
 }
 
 template<typename T, bool (*cmp)(const T & a, const T & b)>
-bool myfind(std::vector<int> x, int v) {
+bool myfind(std::vector<T> x, int v) {
     int small = 0, large = x.size() -1;
 
     while (small <= large) {

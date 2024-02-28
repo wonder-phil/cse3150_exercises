@@ -18,6 +18,7 @@ TEST_CASE("myfind") {
     std::vector<int> x_1 = {-17};  
     answer = myfind<int,greaterThan>(x_1, -17);
     CHECK(true == answer);
+    
     answer = myfind<int,greaterThan>(x_1, 555);
     CHECK(false == answer);
 
