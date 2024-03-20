@@ -30,7 +30,7 @@ SquareMatrix* SquareMatrix::MatrixMult(vector<vector<int>> right_matrix) {
     for (int j = 0; j < cols; j++ ) {
       int t = 0;
       for (int k = 0; k < cols; k++ ) {
-	t += matrix[i][k]* right_matrix[k][j];
+	      t += matrix[i][k]* right_matrix[k][j];
       }
       vOfV[i][j] = t;
     }
